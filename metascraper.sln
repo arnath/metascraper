@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metascraper.Core", "Metascraper.Core\Metascraper.Core.csproj", "{890023F2-ED6C-4D6A-84AF-478BD81A1523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metascraper.Console", "Metascraper.Console\Metascraper.Console.csproj", "{45735A96-D943-40DC-BBDF-5288FC0B3CEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metascraper.Sample", "Metascraper.Sample\Metascraper.Sample.csproj", "{45735A96-D943-40DC-BBDF-5288FC0B3CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
