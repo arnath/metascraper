@@ -1,9 +1,14 @@
-﻿namespace Metascraper.Console;
+﻿using Metascraper.Core;
 
-class Program
+namespace Metascraper.Console;
+
+public class Program
 {
-    static void Main(string[] args)
+    public static async Task Main()
     {
-        Console.WriteLine("Hello, World!");
+        await using Scraper scraper = new Scraper();
+
+        await scraper.InitializeAsync();
+        Thread.Sleep(5000);
     }
 }
