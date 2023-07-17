@@ -1,4 +1,5 @@
-﻿using Microsoft.Playwright;
+﻿using HtmlAgilityPack;
+using Microsoft.Playwright;
 
 namespace Metascraper.Core;
 
@@ -33,6 +34,15 @@ public class Scraper : IAsyncDisposable
             IPage page = await context.NewPageAsync();
             await page.GotoAsync(url.ToString());
             string html = await page.ContentAsync();
+
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(html);
+
+            var nodes = document.DocumentNode.SelectNodes("//meta");
+            foreach (var node in nodes)
+            {
+                Console.WriteLine(node.OuterHtml);
+            }
 
             return html;
         }
