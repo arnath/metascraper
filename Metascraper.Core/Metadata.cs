@@ -2,10 +2,15 @@ namespace Metascraper.Core;
 
 public class Metadata
 {
-    public Metadata(IDictionary<MetaProperties, string> fields)
+    public Metadata(IDictionary<MetaProperties, string?> fields)
     {
         foreach (var kvp in fields)
         {
+            if (kvp.Value == null)
+            {
+                continue;
+            }
+
             switch (kvp.Key)
             {
                 case MetaProperties.Title:

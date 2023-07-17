@@ -5,7 +5,7 @@ namespace Metascraper.Core;
 
 public partial class Parser
 {
-    public void ParseMetadata(string html, params MetaProperties[] properties)
+    public Metadata ParseMetadata(string html, params MetaProperties[] properties)
     {
         if (html == null)
         {
@@ -21,10 +21,12 @@ public partial class Parser
         hd.LoadHtml(html);
         HtmlNode root = hd.DocumentNode;
 
-        foreach (MetaProperties property in properties)
-        {
-            
-        }
+        IDictionary<MetaProperties, string?> fields = 
+            properties.ToDictionary(
+                (p) => p,
+                (p) => this.TryParseContent(root, p));
+
+        return new Metadata(fields);
     }
 
     
