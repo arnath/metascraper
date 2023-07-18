@@ -26,25 +26,21 @@ public class Scraper : IAsyncDisposable
         return scraper;
     }
 
-    public async Task<string> ScrapeMetadataAsync(Uri url)
+    public async Task<string> ScrapeHtmlAsync(Uri url)
     {
         IBrowserContext context = await this.browser!.NewContextAsync();
         try
         {
             IPage page = await context.NewPageAsync();
-            await page.GotoAsync(url.ToString());
+            await page.GotoAsync(url.ToString(), new PageGotoOptions { WaitUntil = WaitUntilState.DOMContentLoaded });
             string html = await page.ContentAsync();
 
-            HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(html);
-
-            var nodes = document.DocumentNode.SelectNodes("//meta");
-            foreach (var node in nodes)
-            {
-                Console.WriteLine(node.OuterHtml);
-            }
-
             return html;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
         finally
         {

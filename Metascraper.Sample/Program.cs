@@ -6,14 +6,9 @@ public class Program
 {
     public static async Task Main()
     {
-        // await using Scraper scraper = await Scraper.CreateNewAsync();
-        // string html = await scraper.ScrapeMetadataAsync(new Uri("https://www.google.com"));
-        dynamic foo = new {
-            Title = "asdf",
-            Description = "qwer"
-        };
-
-        Metadata m = (Metadata)foo;
-        Console.WriteLine(m);
+        await using Scraper scraper = await Scraper.CreateNewAsync();
+        string html = await scraper.ScrapeHtmlAsync(new Uri("https://www.washingtonpost.com/national-security/2023/07/13/zelensky-ukraine-nato-invitation/"));
+        Metadata metadata = Parser.ParseMetadata(html, MetaProperties.Title, MetaProperties.Description, MetaProperties.Image, MetaProperties.Url);
+        Console.WriteLine(metadata);
     }
 }

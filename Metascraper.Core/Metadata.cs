@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Metascraper.Core;
 
 public class Metadata
@@ -42,4 +44,9 @@ public class Metadata
     public string? Image { get; }
 
     public string? Url { get; }
+
+    public override string ToString()
+    {
+        return $"Metascraper.Core.Metadata(Title={this.Title}, Description={this.Description}, Image={this.Image}, Url={this.Url})";
+    }
 }
