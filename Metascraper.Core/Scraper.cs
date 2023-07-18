@@ -37,11 +37,6 @@ public class Scraper : IAsyncDisposable
 
             return html;
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
         finally
         {
             await context.DisposeAsync();
