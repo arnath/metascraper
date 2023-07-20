@@ -3,7 +3,7 @@ using HtmlAgilityPack;
 
 namespace Metascraper.Core;
 
-public partial class Parser
+public class Parser
 {
     public static Metadata ParseMetadata(string html, params MetaProperties[] properties)
     {

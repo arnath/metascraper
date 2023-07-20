@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors>Vijay Prakash</Authors>
     <Company />
     <Product>Metascraper.NET</Product>
